@@ -1,0 +1,459 @@
+[38;2;190;132;255mGREP[0m[38;2;249;38;114m([0m[38;2;230;219;116m1[0m[38;2;249;38;114m)[0m[38;2;248;248;242m                                                      [0m[38;2;253;151;31mUser[0m[38;2;253;151;31m [0m[38;2;253;151;31mCommands[0m[38;2;248;248;242m                                                     [0m[38;2;190;132;255mGREP[0m[38;2;249;38;114m([0m[38;2;230;219;116m1[0m[38;2;249;38;114m)[0m
+
+[38;2;253;151;31mNAME[0m
+[38;2;248;248;242m     grep - print lines that match patterns[0m
+
+[38;2;253;151;31mSYNOPSIS[0m
+[38;2;248;248;242m     grep [0m[38;2;248;248;242m[[0m[38;2;248;248;242mOPTION[0m[38;2;248;248;242m][0m[38;2;248;248;242m... PATTERNS [0m[38;2;248;248;242m[[0m[38;2;248;248;242mFILE[0m[38;2;248;248;242m][0m[38;2;248;248;242m...[0m
+[38;2;248;248;242m     grep [0m[38;2;248;248;242m[[0m[38;2;248;248;242mOPTION[0m[38;2;248;248;242m][0m[38;2;248;248;242m... [0m[38;2;166;226;46m-e[0m[38;2;248;248;242m PATTERNS ... [0m[38;2;248;248;242m[[0m[38;2;248;248;242mFILE[0m[38;2;248;248;242m][0m[38;2;248;248;242m...[0m
+[38;2;248;248;242m     grep [0m[38;2;248;248;242m[[0m[38;2;248;248;242mOPTION[0m[38;2;248;248;242m][0m[38;2;248;248;242m... [0m[38;2;166;226;46m-f[0m[38;2;248;248;242m PATTERN_FILE ... [0m[38;2;248;248;242m[[0m[38;2;248;248;242mFILE[0m[38;2;248;248;242m][0m[38;2;248;248;242m...[0m
+
+[38;2;253;151;31mDESCRIPTION[0m
+[38;2;248;248;242m     grep  searches  for  patterns  in each FILE.  In the synopsis's first form, which is used if no [0m[38;2;166;226;46m-e[0m[38;2;248;248;242m or [0m[38;2;166;226;46m-f[0m[38;2;248;248;242m options are present, the[0m
+[38;2;248;248;242m     first operand PATTERNS is one or more patterns separated by newline characters, and grep prints each line that matches a pattern.[0m
+[38;2;248;248;242m     Typically PATTERNS should be quoted when grep is used in a shell command.[0m
+
+[38;2;248;248;242m     A FILE of “-” stands for standard input.  If no FILE is given, recursive searches examine the working directory, and nonrecursive[0m
+[38;2;248;248;242m     searches read standard input.[0m
+
+[38;2;253;151;31mOPTIONS[0m
+[38;2;248;248;242m   Generic Program Information[0m
+[38;2;248;248;242m     [0m[38;2;166;226;46m--help[0m
+[38;2;248;248;242m            Output a usage message and exit.[0m
+
+[38;2;248;248;242m     [0m[38;2;166;226;46m-V[0m[38;2;248;248;242m, [0m[38;2;166;226;46m--version[0m
+[38;2;248;248;242m            Output the version number of grep and exit.[0m
+
+[38;2;248;248;242m   Pattern Syntax[0m
+[38;2;248;248;242m     [0m[38;2;166;226;46m-E[0m[38;2;248;248;242m, [0m[38;2;166;226;46m--extended-regexp[0m
+[38;2;248;248;242m            Interpret PATTERNS as extended regular expressions (EREs, see below).[0m
+
+[38;2;248;248;242m     [0m[38;2;166;226;46m-F[0m[38;2;248;248;242m, [0m[38;2;166;226;46m--fixed-strings[0m
+[38;2;248;248;242m            Interpret PATTERNS as fixed strings, not regular expressions.[0m
+
+[38;2;248;248;242m     [0m[38;2;166;226;46m-G[0m[38;2;248;248;242m, [0m[38;2;166;226;46m--basic-regexp[0m
+[38;2;248;248;242m            Interpret PATTERNS as basic regular expressions (BREs, see below).  This is the default.[0m
+
+[38;2;248;248;242m     [0m[38;2;166;226;46m-P[0m[38;2;248;248;242m, [0m[38;2;166;226;46m--perl-regexp[0m
+[38;2;248;248;242m            Interpret PATTERNS as Perl-compatible regular expressions (PCREs).  This option is experimental when combined with the  [0m[38;2;166;226;46m-z[0m
+[38;2;248;248;242m            ([0m[38;2;166;226;46m--null-data[0m[38;2;248;248;242m) option, and grep [0m[38;2;166;226;46m-P[0m[38;2;248;248;242m may warn of unimplemented features.[0m
+
+[38;2;248;248;242m   Matching Control[0m
+[38;2;248;248;242m     [0m[38;2;166;226;46m-e[0m[38;2;248;248;242m PATTERNS, [0m[38;2;166;226;46m--regexp[0m[38;2;249;38;114m=[0m[38;2;253;151;31mPATTERNS[0m
+[38;2;248;248;242m            Use  PATTERNS  as  the patterns.  If this option is used multiple times or is combined with the [0m[38;2;166;226;46m-f[0m[38;2;248;248;242m ([0m[38;2;166;226;46m--file[0m[38;2;248;248;242m) option, search[0m
+[38;2;248;248;242m            for all patterns given.  This option can be used to protect a pattern beginning with “-”.[0m
+
+[38;2;248;248;242m     [0m[38;2;166;226;46m-f[0m[38;2;248;248;242m FILE, [0m[38;2;166;226;46m--file[0m[38;2;249;38;114m=[0m[38;2;253;151;31mFILE[0m
+[38;2;248;248;242m            Obtain patterns from FILE, one per line.  If this option is used multiple times or is combined with the [0m[38;2;166;226;46m-e[0m[38;2;248;248;242m ([0m[38;2;166;226;46m--regexp[0m[38;2;248;248;242m)  op‐[0m
+[38;2;248;248;242m            tion,  search for all patterns given.  The empty file contains zero patterns, and therefore matches nothing.  If FILE is -[0m
+[38;2;248;248;242m            , read patterns from standard input.[0m
+
+[38;2;248;248;242m     [0m[38;2;166;226;46m-i[0m[38;2;248;248;242m, [0m[38;2;166;226;46m--ignore-case[0m
+[38;2;248;248;242m            Ignore case distinctions in patterns and input data, so that characters that differ only in case match each other.[0m
+
+[38;2;248;248;242m     [0m[38;2;166;226;46m--no-ignore-case[0m
+[38;2;248;248;242m            Do not ignore case distinctions in patterns and input data.  This is the default.  This option is useful  for  passing  to[0m
+[38;2;248;248;242m            shell scripts that already use [0m[38;2;166;226;46m-i[0m[38;2;248;248;242m, to cancel its effects because the two options override each other.[0m
+
+[38;2;248;248;242m     [0m[38;2;166;226;46m-v[0m[38;2;248;248;242m, [0m[38;2;166;226;46m--invert-match[0m
+[38;2;248;248;242m            Invert the sense of matching, to select non-matching lines.[0m
+
+[38;2;248;248;242m     [0m[38;2;166;226;46m-w[0m[38;2;248;248;242m, [0m[38;2;166;226;46m--word-regexp[0m
+[38;2;248;248;242m            Select  only those lines containing matches that form whole words.  The test is that the matching substring must either be[0m
+[38;2;248;248;242m            at the beginning of the line, or preceded by a non-word constituent character.  Similarly, it must be either at the end of[0m
+[38;2;248;248;242m            the line or followed by a non-word constituent character.  Word-constituent characters are letters, digits, and the under‐[0m
+[38;2;248;248;242m            score.  This option has no effect if [0m[38;2;166;226;46m-x[0m[38;2;248;248;242m is also specified.[0m
+
+[38;2;248;248;242m     [0m[38;2;166;226;46m-x[0m[38;2;248;248;242m, [0m[38;2;166;226;46m--line-regexp[0m
+[38;2;248;248;242m            Select only those matches that exactly match the whole line.  For a regular expression pattern, this is like  parenthesiz‐[0m
+[38;2;248;248;242m            ing the pattern and then surrounding it with ^ and $.[0m
+
+[38;2;248;248;242m   General Output Control[0m
+[38;2;248;248;242m     [0m[38;2;166;226;46m-c[0m[38;2;248;248;242m, [0m[38;2;166;226;46m--count[0m
+[38;2;248;248;242m            Suppress  normal  output; instead print a count of matching lines for each input file.  With the [0m[38;2;166;226;46m-v[0m[38;2;248;248;242m, [0m[38;2;166;226;46m--invert-match[0m[38;2;248;248;242m option[0m
+[38;2;248;248;242m            (see above), count non-matching lines.[0m
+
+[38;2;248;248;242m     [0m[38;2;166;226;46m--color[0m[38;2;248;248;242m[=WHEN], [0m[38;2;166;226;46m--colour[0m[38;2;248;248;242m[=WHEN][0m
+[38;2;248;248;242m            Surround the matched (non-empty) strings, matching lines, context lines, file names, line numbers, byte offsets, and sepa‐[0m
+[38;2;248;248;242m            rators (for fields and groups of context lines) with escape sequences to display them in color on the terminal.  The  col‐[0m
+[38;2;248;248;242m            ors are defined by the environment variable GREP_COLORS.  WHEN is never, always, or auto.[0m
+
+[38;2;248;248;242m     [0m[38;2;166;226;46m-L[0m[38;2;248;248;242m, [0m[38;2;166;226;46m--files-without-match[0m
+[38;2;248;248;242m            Suppress normal output; instead print the name of each input file from which no output would normally have been printed.[0m
+
+[38;2;248;248;242m     [0m[38;2;166;226;46m-l[0m[38;2;248;248;242m, [0m[38;2;166;226;46m--files-with-matches[0m
+[38;2;248;248;242m            Suppress  normal  output;  instead  print  the name of each input file from which output would normally have been printed.[0m
+[38;2;248;248;242m            Scanning each input file stops upon first match.[0m
+
+[38;2;248;248;242m     [0m[38;2;166;226;46m-m[0m[38;2;248;248;242m NUM, [0m[38;2;166;226;46m--max-count[0m[38;2;249;38;114m=[0m[38;2;253;151;31mNUM[0m
+[38;2;248;248;242m            Stop reading a file after NUM matching lines.  If NUM is zero, grep stops right away without reading input.  A NUM  of  [0m[38;2;166;226;46m-1[0m
+[38;2;248;248;242m            is  treated  as infinity and grep does not stop; this is the default.  If the input is standard input from a regular file,[0m
+[38;2;248;248;242m            and NUM matching lines are output, grep ensures that the standard input is positioned to just after the last matching line[0m
+[38;2;248;248;242m            before exiting, regardless of the presence of trailing context lines.  This enables a calling process to resume a  search.[0m
+[38;2;248;248;242m            When  grep  stops  after NUM matching lines, it outputs any trailing context lines.  When the [0m[38;2;166;226;46m-c[0m[38;2;248;248;242m or [0m[38;2;166;226;46m--count[0m[38;2;248;248;242m option is also[0m
+[38;2;248;248;242m            used, grep does not output a count greater than NUM.  When the [0m[38;2;166;226;46m-v[0m[38;2;248;248;242m or [0m[38;2;166;226;46m--invert-match[0m[38;2;248;248;242m option is also used, grep stops  after[0m
+[38;2;248;248;242m            outputting NUM non-matching lines.[0m
+
+[38;2;248;248;242m     [0m[38;2;166;226;46m-o[0m[38;2;248;248;242m, [0m[38;2;166;226;46m--only-matching[0m
+[38;2;248;248;242m            Print only the matched (non-empty) parts of a matching line, with each such part on a separate output line.[0m
+
+[38;2;248;248;242m     [0m[38;2;166;226;46m-q[0m[38;2;248;248;242m, [0m[38;2;166;226;46m--quiet[0m[38;2;248;248;242m, [0m[38;2;166;226;46m--silent[0m
+[38;2;248;248;242m            Quiet;  do not write anything to standard output.  Exit immediately with zero status if any match is found, even if an er‐[0m
+[38;2;248;248;242m            ror was detected.  Also see the [0m[38;2;166;226;46m-s[0m[38;2;248;248;242m or [0m[38;2;166;226;46m--no-messages[0m[38;2;248;248;242m option.[0m
+
+[38;2;248;248;242m     [0m[38;2;166;226;46m-s[0m[38;2;248;248;242m, [0m[38;2;166;226;46m--no-messages[0m
+[38;2;248;248;242m            Suppress error messages about nonexistent or unreadable files.[0m
+
+[38;2;248;248;242m   Output Line Prefix Control[0m
+[38;2;248;248;242m     [0m[38;2;166;226;46m-b[0m[38;2;248;248;242m, [0m[38;2;166;226;46m--byte-offset[0m
+[38;2;248;248;242m            Print the 0-based byte offset within the input file before each line of output.  If  [0m[38;2;166;226;46m-o[0m[38;2;248;248;242m  ([0m[38;2;166;226;46m--only-matching[0m[38;2;248;248;242m)  is  specified,[0m
+[38;2;248;248;242m            print the offset of the matching part itself.[0m
+
+[38;2;248;248;242m     [0m[38;2;166;226;46m-H[0m[38;2;248;248;242m, [0m[38;2;166;226;46m--with-filename[0m
+[38;2;248;248;242m            Print the file name for each match.  This is the default when there is more than one file to search.  This is a GNU exten‐[0m
+[38;2;248;248;242m            sion.[0m
+
+[38;2;248;248;242m     [0m[38;2;166;226;46m-h[0m[38;2;248;248;242m, [0m[38;2;166;226;46m--no-filename[0m
+[38;2;248;248;242m            Suppress  the prefixing of file names on output.  This is the default when there is only one file (or only standard input)[0m
+[38;2;248;248;242m            to search.[0m
+
+[38;2;248;248;242m     [0m[38;2;166;226;46m--label[0m[38;2;249;38;114m=[0m[38;2;253;151;31mLABEL[0m
+[38;2;248;248;242m            Display input actually coming from standard input as input coming from file LABEL.  This can be useful for  commands  that[0m
+[38;2;248;248;242m            transform a file's contents before searching, e.g., gzip [0m[38;2;166;226;46m-cd[0m[38;2;248;248;242m foo.gz | grep [0m[38;2;166;226;46m--label[0m[38;2;249;38;114m=[0m[38;2;253;151;31mfoo[0m[38;2;248;248;242m [0m[38;2;166;226;46m-H[0m[38;2;248;248;242m 'some pattern'.  See also the [0m[38;2;166;226;46m-H[0m
+[38;2;248;248;242m            option.[0m
+
+[38;2;248;248;242m     [0m[38;2;166;226;46m-n[0m[38;2;248;248;242m, [0m[38;2;166;226;46m--line-number[0m
+[38;2;248;248;242m            Prefix each line of output with the 1-based line number within its input file.[0m
+
+[38;2;248;248;242m     [0m[38;2;166;226;46m-T[0m[38;2;248;248;242m, [0m[38;2;166;226;46m--initial-tab[0m
+[38;2;248;248;242m            Make  sure that the first character of actual line content lies on a tab stop, so that the alignment of tabs looks normal.[0m
+[38;2;248;248;242m            This is useful with options that prefix their output to the actual content: [0m[38;2;166;226;46m-H[0m[38;2;248;248;242m,[0m[38;2;166;226;46m-n[0m[38;2;248;248;242m, and [0m[38;2;166;226;46m-b[0m[38;2;248;248;242m.  In order to improve the proba‐[0m
+[38;2;248;248;242m            bility that lines from a single file will all start at the same column, this also causes the line number and  byte  offset[0m
+[38;2;248;248;242m            (if present) to be printed in a minimum size field width.[0m
+
+[38;2;248;248;242m     [0m[38;2;166;226;46m-Z[0m[38;2;248;248;242m, [0m[38;2;166;226;46m--null[0m
+[38;2;248;248;242m            Output  a  zero  byte  (the ASCII NUL character) instead of the character that normally follows a file name.  For example,[0m
+[38;2;248;248;242m            grep [0m[38;2;166;226;46m-lZ[0m[38;2;248;248;242m outputs a zero byte after each file name instead of the usual newline.  This option makes the output unambiguous,[0m
+[38;2;248;248;242m            even in the presence of file names containing unusual characters like newlines.  This option can  be  used  with  commands[0m
+[38;2;248;248;242m            like find [0m[38;2;166;226;46m-print0[0m[38;2;248;248;242m, perl [0m[38;2;166;226;46m-0[0m[38;2;248;248;242m, sort [0m[38;2;166;226;46m-z[0m[38;2;248;248;242m, and xargs [0m[38;2;166;226;46m-0[0m[38;2;248;248;242m to process arbitrary file names, even those that contain newline charac‐[0m
+[38;2;248;248;242m            ters.[0m
+
+[38;2;248;248;242m   Context Line Control[0m
+[38;2;248;248;242m     [0m[38;2;166;226;46m-A[0m[38;2;248;248;242m NUM, [0m[38;2;166;226;46m--after-context[0m[38;2;249;38;114m=[0m[38;2;253;151;31mNUM[0m
+[38;2;248;248;242m            Print  NUM  lines  of trailing context after matching lines.  Places a line containing a group separator (--) between con‐[0m
+[38;2;248;248;242m            tiguous groups of matches.  With the [0m[38;2;166;226;46m-o[0m[38;2;248;248;242m or [0m[38;2;166;226;46m--only-matching[0m[38;2;248;248;242m option, this has no effect and a warning is given.[0m
+
+[38;2;248;248;242m     [0m[38;2;166;226;46m-B[0m[38;2;248;248;242m NUM, [0m[38;2;166;226;46m--before-context[0m[38;2;249;38;114m=[0m[38;2;253;151;31mNUM[0m
+[38;2;248;248;242m            Print NUM lines of leading context before matching lines.  Places a line containing a group separator  (--)  between  con‐[0m
+[38;2;248;248;242m            tiguous groups of matches.  With the [0m[38;2;166;226;46m-o[0m[38;2;248;248;242m or [0m[38;2;166;226;46m--only-matching[0m[38;2;248;248;242m option, this has no effect and a warning is given.[0m
+
+[38;2;248;248;242m     [0m[38;2;166;226;46m-C[0m[38;2;248;248;242m NUM, [0m[38;2;166;226;46m-NUM[0m[38;2;248;248;242m, [0m[38;2;166;226;46m--context[0m[38;2;249;38;114m=[0m[38;2;253;151;31mNUM[0m
+[38;2;248;248;242m            Print  NUM lines of output context.  Places a line containing a group separator (--) between contiguous groups of matches.[0m
+[38;2;248;248;242m            With the [0m[38;2;166;226;46m-o[0m[38;2;248;248;242m or [0m[38;2;166;226;46m--only-matching[0m[38;2;248;248;242m option, this has no effect and a warning is given.[0m
+
+[38;2;248;248;242m     [0m[38;2;166;226;46m--group-separator[0m[38;2;249;38;114m=[0m[38;2;253;151;31mSEP[0m
+[38;2;248;248;242m            When [0m[38;2;166;226;46m-A[0m[38;2;248;248;242m, [0m[38;2;166;226;46m-B[0m[38;2;248;248;242m, or [0m[38;2;166;226;46m-C[0m[38;2;248;248;242m are in use, print SEP instead of -- between groups of lines.[0m
+
+[38;2;248;248;242m     [0m[38;2;166;226;46m--no-group-separator[0m
+[38;2;248;248;242m            When [0m[38;2;166;226;46m-A[0m[38;2;248;248;242m, [0m[38;2;166;226;46m-B[0m[38;2;248;248;242m, or [0m[38;2;166;226;46m-C[0m[38;2;248;248;242m are in use, do not print a separator between groups of lines.[0m
+
+[38;2;248;248;242m   File and Directory Selection[0m
+[38;2;248;248;242m     [0m[38;2;166;226;46m-a[0m[38;2;248;248;242m, [0m[38;2;166;226;46m--text[0m
+[38;2;248;248;242m            Process a binary file as if it were text; this is equivalent to the [0m[38;2;166;226;46m--binary-files[0m[38;2;249;38;114m=[0m[38;2;253;151;31mtext[0m[38;2;248;248;242m option.[0m
+
+[38;2;248;248;242m     [0m[38;2;166;226;46m--binary-files[0m[38;2;249;38;114m=[0m[38;2;253;151;31mTYPE[0m
+[38;2;248;248;242m            If a file's data or metadata indicate that the file contains binary data, assume that the file is of type TYPE.   Non-text[0m
+[38;2;248;248;242m            bytes  indicate binary data; these are either output bytes that are improperly encoded for the current locale, or null in‐[0m
+[38;2;248;248;242m            put bytes when the [0m[38;2;166;226;46m-z[0m[38;2;248;248;242m option is not given.[0m
+
+[38;2;248;248;242m            By default, TYPE is binary, and grep suppresses output after null input binary data is discovered, and  suppresses  output[0m
+[38;2;248;248;242m            lines  that  contain  improperly  encoded data.  When some output is suppressed, grep follows any output with a message to[0m
+[38;2;248;248;242m            standard error saying that a binary file matches.[0m
+
+[38;2;248;248;242m            If TYPE is without-match, when grep discovers null input binary data it assumes that the rest of the file does not  match;[0m
+[38;2;248;248;242m            this is equivalent to the [0m[38;2;166;226;46m-I[0m[38;2;248;248;242m option.[0m
+
+[38;2;248;248;242m            If TYPE is text, grep processes a binary file as if it were text; this is equivalent to the [0m[38;2;166;226;46m-a[0m[38;2;248;248;242m option.[0m
+
+[38;2;248;248;242m            When  type  is  binary, grep may treat non-text bytes as line terminators even without the [0m[38;2;166;226;46m-z[0m[38;2;248;248;242m option.  This means choosing[0m
+[38;2;248;248;242m            binary versus text can affect whether a pattern matches a file.  For example, when type is binary  the  pattern  q$  might[0m
+[38;2;248;248;242m            match  q immediately followed by a null byte, even though this is not matched when type is text.  Conversely, when type is[0m
+[38;2;248;248;242m            binary the pattern . (period) might not match a null byte.[0m
+
+[38;2;248;248;242m            Warning: The [0m[38;2;166;226;46m-a[0m[38;2;248;248;242m option might output binary garbage, which can have nasty side effects if the output is a terminal  and  if[0m
+[38;2;248;248;242m            the terminal driver interprets some of it as commands.  On the other hand, when reading files whose text encodings are un‐[0m
+[38;2;248;248;242m            known,  it  can  be  helpful  to use [0m[38;2;166;226;46m-a[0m[38;2;248;248;242m or to set LC_ALL='C' in the environment, in order to find more matches even if the[0m
+[38;2;248;248;242m            matches are unsafe for direct display.[0m
+
+[38;2;248;248;242m     [0m[38;2;166;226;46m-D[0m[38;2;248;248;242m ACTION, [0m[38;2;166;226;46m--devices[0m[38;2;249;38;114m=[0m[38;2;253;151;31mACTION[0m
+[38;2;248;248;242m            If an input file is a device, FIFO or socket, use ACTION to process it.  By default, ACTION is read, which means that  de‐[0m
+[38;2;248;248;242m            vices are read just as if they were ordinary files.  If ACTION is skip, devices are silently skipped.[0m
+
+[38;2;248;248;242m     [0m[38;2;166;226;46m-d[0m[38;2;248;248;242m ACTION, [0m[38;2;166;226;46m--directories[0m[38;2;249;38;114m=[0m[38;2;253;151;31mACTION[0m
+[38;2;248;248;242m            If  an input file is a directory, use ACTION to process it.  By default, ACTION is read, i.e., read directories just as if[0m
+[38;2;248;248;242m            they were ordinary files.  If ACTION is skip, silently skip directories.  If ACTION is recurse, read all files under  each[0m
+[38;2;248;248;242m            directory,  recursively,  following symbolic links only if they are on the command line.  This is equivalent to the [0m[38;2;166;226;46m-r[0m[38;2;248;248;242m op‐[0m
+[38;2;248;248;242m            tion.[0m
+
+[38;2;248;248;242m     [0m[38;2;166;226;46m--exclude[0m[38;2;249;38;114m=[0m[38;2;253;151;31mGLOB[0m
+[38;2;248;248;242m            Skip any command-line file with a name suffix that matches the pattern GLOB, using wildcard matching; a name suffix is ei‐[0m
+[38;2;248;248;242m            ther the whole name, or a trailing part that starts with a non-slash character immediately after a slash (/) in the  name.[0m
+[38;2;248;248;242m            When searching recursively, skip any subfile whose base name matches GLOB; the base name is the part after the last slash.[0m
+[38;2;248;248;242m            A pattern can use *, ?, and [...] as wildcards, and \ to quote a wildcard or backslash character literally.[0m
+
+[38;2;248;248;242m     [0m[38;2;166;226;46m--exclude-from[0m[38;2;249;38;114m=[0m[38;2;253;151;31mFILE[0m
+[38;2;248;248;242m            Skip  files  whose base name matches any of the file-name globs read from FILE (using wildcard matching as described under[0m
+[38;2;248;248;242m            [0m[38;2;166;226;46m--exclude[0m[38;2;248;248;242m).[0m
+
+[38;2;248;248;242m     [0m[38;2;166;226;46m--exclude-dir[0m[38;2;249;38;114m=[0m[38;2;253;151;31mGLOB[0m
+[38;2;248;248;242m            Skip any command-line directory with a name suffix that matches the pattern GLOB.  When searching  recursively,  skip  any[0m
+[38;2;248;248;242m            subdirectory whose base name matches GLOB.  Ignore any redundant trailing slashes in GLOB.[0m
+
+[38;2;248;248;242m     [0m[38;2;166;226;46m-I[0m[38;2;248;248;242m     Process  a  binary file as if it did not contain matching data; this is equivalent to the [0m[38;2;166;226;46m--binary-files[0m[38;2;249;38;114m=[0m[38;2;253;151;31mwithout-match[0m[38;2;248;248;242m op‐[0m
+[38;2;248;248;242m            tion.[0m
+
+[38;2;248;248;242m     [0m[38;2;166;226;46m--include[0m[38;2;249;38;114m=[0m[38;2;253;151;31mGLOB[0m
+[38;2;248;248;242m            Search only files whose base name matches GLOB (using wildcard matching as described under [0m[38;2;166;226;46m--exclude[0m[38;2;248;248;242m).   If  contradictory[0m
+[38;2;248;248;242m            [0m[38;2;166;226;46m--include[0m[38;2;248;248;242m and [0m[38;2;166;226;46m--exclude[0m[38;2;248;248;242m options are given, the last matching one wins.  If no [0m[38;2;166;226;46m--include[0m[38;2;248;248;242m or [0m[38;2;166;226;46m--exclude[0m[38;2;248;248;242m options match, a file[0m
+[38;2;248;248;242m            is included unless the first such option is [0m[38;2;166;226;46m--include[0m[38;2;248;248;242m.[0m
+
+[38;2;248;248;242m     [0m[38;2;166;226;46m-r[0m[38;2;248;248;242m, [0m[38;2;166;226;46m--recursive[0m
+[38;2;248;248;242m            Read  all  files  under  each directory, recursively, following symbolic links only if they are on the command line.  Note[0m
+[38;2;248;248;242m            that if no file operand is given, grep searches the working directory.  This is equivalent to the [0m[38;2;166;226;46m-d[0m[38;2;248;248;242m recurse option.[0m
+
+[38;2;248;248;242m     [0m[38;2;166;226;46m-R[0m[38;2;248;248;242m, [0m[38;2;166;226;46m--dereference-recursive[0m
+[38;2;248;248;242m            Read all files under each directory, recursively.  Follow all symbolic links, unlike [0m[38;2;166;226;46m-r[0m[38;2;248;248;242m.[0m
+
+[38;2;248;248;242m   Other Options[0m
+[38;2;248;248;242m     [0m[38;2;166;226;46m--line-buffered[0m
+[38;2;248;248;242m            Use line buffering on output.  This can cause a performance penalty.[0m
+
+[38;2;248;248;242m     [0m[38;2;166;226;46m-U[0m[38;2;248;248;242m, [0m[38;2;166;226;46m--binary[0m
+[38;2;248;248;242m            Treat the [0m[38;2;166;226;46mfile[0m[38;2;249;38;114m([0m[38;2;190;132;255ms[0m[38;2;249;38;114m)[0m[38;2;248;248;242m as binary.  By default, under MS-DOS and MS-Windows, grep guesses whether a file is text  or  binary  as[0m
+[38;2;248;248;242m            described  for  the  [0m[38;2;166;226;46m--binary-files[0m[38;2;248;248;242m option.  If grep decides the file is a text file, it strips the CR characters from the[0m
+[38;2;248;248;242m            original file contents (to make regular expressions with ^ and $ work correctly).  Specifying [0m[38;2;166;226;46m-U[0m[38;2;248;248;242m overrules this guesswork,[0m
+[38;2;248;248;242m            causing all files to be read and passed to the matching mechanism verbatim; if the file is a text file with CR/LF pairs at[0m
+[38;2;248;248;242m            the end of each line, this will cause some regular expressions to fail.  This option has no effect on platforms other than[0m
+[38;2;248;248;242m            MS-DOS and MS-Windows.[0m
+
+[38;2;248;248;242m     [0m[38;2;166;226;46m-z[0m[38;2;248;248;242m, [0m[38;2;166;226;46m--null-data[0m
+[38;2;248;248;242m            Treat input and output data as sequences of lines, each terminated by a zero byte (the ASCII NUL character) instead  of  a[0m
+[38;2;248;248;242m            newline.   Like  the  [0m[38;2;166;226;46m-Z[0m[38;2;248;248;242m  or  [0m[38;2;166;226;46m--null[0m[38;2;248;248;242m  option, this option can be used with commands like sort [0m[38;2;166;226;46m-z[0m[38;2;248;248;242m to process arbitrary file[0m
+[38;2;248;248;242m            names.[0m
+
+[38;2;253;151;31mREGULAR EXPRESSIONS[0m
+[38;2;248;248;242m     A regular expression is a pattern that describes a set of strings.  Regular expressions are constructed analogously to arithmetic[0m
+[38;2;248;248;242m     expressions, by using various operators to combine smaller expressions.[0m
+
+[38;2;248;248;242m     grep understands three different versions of regular expression syntax: “basic” (BRE), “extended” (ERE) and  “perl”  (PCRE).   In[0m
+[38;2;248;248;242m     GNU  grep, basic and extended regular expressions are merely different notations for the same pattern-matching functionality.  In[0m
+[38;2;248;248;242m     other implementations, basic regular expressions are ordinarily less powerful than extended, though occasionally it is the  other[0m
+[38;2;248;248;242m     way  around.   The  following  description applies to extended regular expressions; differences for basic regular expressions are[0m
+[38;2;248;248;242m     summarized afterwards.  Perl-compatible regular expressions have different functionality, and are  documented  in  [0m[38;2;166;226;46mpcre2syntax[0m[38;2;249;38;114m([0m[38;2;190;132;255m3[0m[38;2;249;38;114m)[0m
+[38;2;248;248;242m     and [0m[38;2;166;226;46mpcre2pattern[0m[38;2;249;38;114m([0m[38;2;190;132;255m3[0m[38;2;249;38;114m)[0m[38;2;248;248;242m, but work only if PCRE support is enabled.[0m
+
+[38;2;248;248;242m     The  fundamental  building blocks are the regular expressions that match a single character.  Most characters, including all let‐[0m
+[38;2;248;248;242m     ters and digits, are regular expressions that match themselves.  Any meta-character with special meaning may be quoted by preced‐[0m
+[38;2;248;248;242m     ing it with a backslash.[0m
+
+[38;2;248;248;242m     The period . matches any single character.  It is unspecified whether it matches an encoding error.[0m
+
+[38;2;248;248;242m   Character Classes and Bracket Expressions[0m
+[38;2;248;248;242m     A bracket expression is a list of characters enclosed by [ and ].  It matches any single character in that list.   If  the  first[0m
+[38;2;248;248;242m     character  of  the list is the caret ^ then it matches any character not in the list; it is unspecified whether it matches an en‐[0m
+[38;2;248;248;242m     coding error.  For example, the regular expression [0123456789] matches any single digit.[0m
+
+[38;2;248;248;242m     Within a bracket expression, a range expression consists of two characters separated by a hyphen.  In the default  C  locale,  it[0m
+[38;2;248;248;242m     matches any single character that appears between the two characters in ASCII order, inclusive.  For example, [a-d] is equivalent[0m
+[38;2;248;248;242m     to  [abcd].  In other locales the behavior is unspecified: [a-d] might be equivalent to [abcd] or [aBbCcDd] or some other bracket[0m
+[38;2;248;248;242m     expression, or it might fail to match any character, or the set of characters that it matches might be erratic, or  it  might  be[0m
+[38;2;248;248;242m     invalid.   To  obtain the traditional interpretation of bracket expressions, you can use the C locale by setting the LC_ALL envi‐[0m
+[38;2;248;248;242m     ronment variable to the value C.[0m
+
+[38;2;248;248;242m     Finally, certain named classes of characters are predefined within bracket expressions, as follows.  Their  names  are  self  ex‐[0m
+[38;2;248;248;242m     planatory,  and  they  are  [:alnum:],  [:alpha:],  [:blank:],  [:cntrl:], [:digit:], [:graph:], [:lower:], [:print:], [:punct:],[0m
+[38;2;248;248;242m     [:space:], [:upper:], and [:xdigit:].  For example, [[:alnum:]] means the character class of numbers and letters in  the  current[0m
+[38;2;248;248;242m     locale.   In  the  C  locale and ASCII character set encoding, this is the same as [0-9A-Za-z].  (Note that the brackets in these[0m
+[38;2;248;248;242m     class names are part of the symbolic names, and must be included in addition to the brackets delimiting the bracket  expression.)[0m
+[38;2;248;248;242m     Most  meta-characters  lose their special meaning inside bracket expressions.  To include a literal ] place it first in the list.[0m
+[38;2;248;248;242m     Similarly, to include a literal ^ place it anywhere but first.  Finally, to include a literal - place it last.[0m
+
+[38;2;248;248;242m   Anchoring[0m
+[38;2;248;248;242m     The caret ^ and the dollar sign $ are meta-characters that respectively match the empty string at the  beginning  and  end  of  a[0m
+[38;2;248;248;242m     line.[0m
+
+[38;2;248;248;242m   The Backslash Character and Special Expressions[0m
+[38;2;248;248;242m     The  symbols  \<  and \> respectively match the empty string at the beginning and end of a word.  The symbol \b matches the empty[0m
+[38;2;248;248;242m     string at the edge of a word, and \B matches the empty string provided it's not at the edge of a word.  The symbol \w is  a  syn‐[0m
+[38;2;248;248;242m     onym for [_[:alnum:]] and \W is a synonym for [^_[:alnum:]].[0m
+
+[38;2;248;248;242m   Repetition[0m
+[38;2;248;248;242m     A regular expression may be followed by one of several repetition operators:[0m
+[38;2;248;248;242m     ?      The preceding item is optional and matched at most once.[0m
+[38;2;248;248;242m     *      The preceding item will be matched zero or more times.[0m
+[38;2;248;248;242m     +      The preceding item will be matched one or more times.[0m
+[38;2;248;248;242m     {n}    The preceding item is matched exactly n times.[0m
+[38;2;248;248;242m     {n,}   The preceding item is matched n or more times.[0m
+[38;2;248;248;242m     {,m}   The preceding item is matched at most m times.  This is a GNU extension.[0m
+[38;2;248;248;242m     {n,m}  The preceding item is matched at least n times, but not more than m times.[0m
+
+[38;2;248;248;242m   Concatenation[0m
+[38;2;248;248;242m     Two regular expressions may be concatenated; the resulting regular expression matches any string formed by concatenating two sub‐[0m
+[38;2;248;248;242m     strings that respectively match the concatenated expressions.[0m
+
+[38;2;248;248;242m   Alternation[0m
+[38;2;248;248;242m     Two  regular  expressions may be joined by the infix operator |; the resulting regular expression matches any string matching ei‐[0m
+[38;2;248;248;242m     ther alternate expression.[0m
+
+[38;2;248;248;242m   Precedence[0m
+[38;2;248;248;242m     Repetition takes precedence over concatenation, which in turn takes precedence over alternation.  A whole expression may  be  en‐[0m
+[38;2;248;248;242m     closed in parentheses to override these precedence rules and form a subexpression.[0m
+
+[38;2;248;248;242m   Back-references and Subexpressions[0m
+[38;2;248;248;242m     The back-reference \n, where n is a single digit, matches the substring previously matched by the nth parenthesized subexpression[0m
+[38;2;248;248;242m     of the regular expression.[0m
+
+[38;2;248;248;242m   Basic vs Extended Regular Expressions[0m
+[38;2;248;248;242m     In  basic  regular  expressions  the meta-characters ?, +, {, |, (, and ) lose their special meaning; instead use the backslashed[0m
+[38;2;248;248;242m     versions \?, \+, \{, \|, \(, and \).[0m
+
+[38;2;253;151;31mEXIT STATUS[0m
+[38;2;248;248;242m     Normally the exit status is 0 if a line is selected, 1 if no lines were selected, and 2 if an error occurred.  However, if the [0m[38;2;166;226;46m-q[0m
+[38;2;248;248;242m     or [0m[38;2;166;226;46m--quiet[0m[38;2;248;248;242m or [0m[38;2;166;226;46m--silent[0m[38;2;248;248;242m is used and a line is selected, the exit status is 0 even if an error occurred.[0m
+
+[38;2;253;151;31mENVIRONMENT[0m
+[38;2;248;248;242m     The behavior of grep is affected by the following environment variables.[0m
+
+[38;2;248;248;242m     The locale for category LC_foo is specified by examining the three environment variables LC_ALL, LC_foo,  LANG,  in  that  order.[0m
+[38;2;248;248;242m     The  first  of  these  variables  that is set specifies the locale.  For example, if LC_ALL is not set, but LC_MESSAGES is set to[0m
+[38;2;248;248;242m     pt_BR, then the Brazilian Portuguese locale is used for the LC_MESSAGES category.  The C locale is used if none of these environ‐[0m
+[38;2;248;248;242m     ment variables are set, if the locale catalog is not installed, or if grep was not compiled with national language support (NLS).[0m
+[38;2;248;248;242m     The shell command locale [0m[38;2;166;226;46m-a[0m[38;2;248;248;242m lists locales that are currently available.[0m
+
+[38;2;248;248;242m     GREP_COLORS[0m
+[38;2;248;248;242m            Controls how the [0m[38;2;166;226;46m--color[0m[38;2;248;248;242m option highlights output.  Its value is a colon-separated list of capabilities that  defaults  to[0m
+[38;2;248;248;242m            ms=01;31:mc=01;31:sl=:cx=:fn=35:ln=32:bn=32:se=36  with  the  rv  and ne boolean capabilities omitted (i.e., false).  Sup‐[0m
+[38;2;248;248;242m            ported capabilities are as follows.[0m
+
+[38;2;248;248;242m            sl=    SGR substring for whole selected lines (i.e., matching lines when the [0m[38;2;166;226;46m-v[0m[38;2;248;248;242m command-line option is  omitted,  or  non-[0m
+[38;2;248;248;242m                   matching lines when [0m[38;2;166;226;46m-v[0m[38;2;248;248;242m is specified).  If however the boolean rv capability and the [0m[38;2;166;226;46m-v[0m[38;2;248;248;242m command-line option are both[0m
+[38;2;248;248;242m                   specified,  it applies to context matching lines instead.  The default is empty (i.e., the terminal's default color[0m
+[38;2;248;248;242m                   pair).[0m
+
+[38;2;248;248;242m            cx=    SGR substring for whole context lines (i.e., non-matching lines when the [0m[38;2;166;226;46m-v[0m[38;2;248;248;242m  command-line  option  is  omitted,  or[0m
+[38;2;248;248;242m                   matching lines when [0m[38;2;166;226;46m-v[0m[38;2;248;248;242m is specified).  If however the boolean rv capability and the [0m[38;2;166;226;46m-v[0m[38;2;248;248;242m command-line option are both[0m
+[38;2;248;248;242m                   specified,  it  applies to selected non-matching lines instead.  The default is empty (i.e., the terminal's default[0m
+[38;2;248;248;242m                   color pair).[0m
+
+[38;2;248;248;242m            rv     Boolean value that reverses (swaps) the meanings of the sl= and cx= capabilities when the [0m[38;2;166;226;46m-v[0m[38;2;248;248;242m command-line option is[0m
+[38;2;248;248;242m                   specified.  The default is false (i.e., the capability is omitted).[0m
+
+[38;2;248;248;242m            mt=01;31[0m
+[38;2;248;248;242m                   SGR substring for matching non-empty text in any matching line (i.e., a selected line when the [0m[38;2;166;226;46m-v[0m[38;2;248;248;242m command-line  op‐[0m
+[38;2;248;248;242m                   tion  is  omitted, or a context line when [0m[38;2;166;226;46m-v[0m[38;2;248;248;242m is specified).  Setting this is equivalent to setting both ms= and mc=[0m
+[38;2;248;248;242m                   at once to the same value.  The default is a bold red text foreground over the current line background.[0m
+
+[38;2;248;248;242m            ms=01;31[0m
+[38;2;248;248;242m                   SGR substring for matching non-empty text in a selected line.  (This is only used when the [0m[38;2;166;226;46m-v[0m[38;2;248;248;242m  command-line  option[0m
+[38;2;248;248;242m                   is  omitted.)  The effect of the sl= (or cx= if rv) capability remains active when this kicks in.  The default is a[0m
+[38;2;248;248;242m                   bold red text foreground over the current line background.[0m
+
+[38;2;248;248;242m            mc=01;31[0m
+[38;2;248;248;242m                   SGR substring for matching non-empty text in a context line.  (This is only used when the [0m[38;2;166;226;46m-v[0m[38;2;248;248;242m command-line option is[0m
+[38;2;248;248;242m                   specified.)  The effect of the cx= (or sl= if rv) capability remains active when this kicks in.  The default  is  a[0m
+[38;2;248;248;242m                   bold red text foreground over the current line background.[0m
+
+[38;2;248;248;242m            fn=35  SGR  substring for file names prefixing any content line.  The default is a magenta text foreground over the termi‐[0m
+[38;2;248;248;242m                   nal's default background.[0m
+
+[38;2;248;248;242m            ln=32  SGR substring for line numbers prefixing any content line.  The default is a green text foreground over the  termi‐[0m
+[38;2;248;248;242m                   nal's default background.[0m
+
+[38;2;248;248;242m            bn=32  SGR  substring for byte offsets prefixing any content line.  The default is a green text foreground over the termi‐[0m
+[38;2;248;248;242m                   nal's default background.[0m
+
+[38;2;248;248;242m            se=36  SGR substring for separators that are inserted between selected line fields (:), between context line fields,  (-),[0m
+[38;2;248;248;242m                   and between groups of adjacent lines when nonzero context is specified (--).  The default is a cyan text foreground[0m
+[38;2;248;248;242m                   over the terminal's default background.[0m
+
+[38;2;248;248;242m            ne     Boolean  value that prevents clearing to the end of line using Erase in Line (EL) to Right (\33[K) each time a col‐[0m
+[38;2;248;248;242m                   orized item ends.  This is needed on terminals on which EL is not supported.  It is otherwise useful  on  terminals[0m
+[38;2;248;248;242m                   for  which  the back_color_erase (bce) boolean terminfo capability does not apply, when the chosen highlight colors[0m
+[38;2;248;248;242m                   do not affect the background, or when EL is too slow or causes too much flicker.  The default is false  (i.e.,  the[0m
+[38;2;248;248;242m                   capability is omitted).[0m
+
+[38;2;248;248;242m            Note  that  boolean capabilities have no =... part.  They are omitted (i.e., false) by default and become true when speci‐[0m
+[38;2;248;248;242m            fied.[0m
+
+[38;2;248;248;242m            See the Select Graphic Rendition (SGR) section in the documentation of the text terminal that is used for permitted values[0m
+[38;2;248;248;242m            and their meaning as character attributes.  These substring values are integers in decimal representation and can be  con‐[0m
+[38;2;248;248;242m            catenated with semicolons.  grep takes care of assembling the result into a complete SGR sequence (\33[...m).  Common val‐[0m
+[38;2;248;248;242m            ues to concatenate include 1 for bold, 4 for underline, 5 for blink, 7 for inverse, 39 for default foreground color, 30 to[0m
+[38;2;248;248;242m            37  for  foreground  colors,  90  to 97 for 16-color mode foreground colors, 38;5;0 to 38;5;255 for 88-color and 256-color[0m
+[38;2;248;248;242m            modes foreground colors, 49 for default background color, 40 to 47 for background colors, 100 to  107  for  16-color  mode[0m
+[38;2;248;248;242m            background colors, and 48;5;0 to 48;5;255 for 88-color and 256-color modes background colors.[0m
+
+[38;2;248;248;242m     LC_ALL, LC_COLLATE, LANG[0m
+[38;2;248;248;242m            These  variables specify the locale for the LC_COLLATE category, which determines the collating sequence used to interpret[0m
+[38;2;248;248;242m            range expressions like [a-z].[0m
+
+[38;2;248;248;242m     LC_ALL, LC_CTYPE, LANG[0m
+[38;2;248;248;242m            These variables specify the locale for the LC_CTYPE category, which determines the type of characters, e.g., which charac‐[0m
+[38;2;248;248;242m            ters are whitespace.  This category also determines the character encoding, that is, whether text  is  encoded  in  UTF-8,[0m
+[38;2;248;248;242m            ASCII,  or some other encoding.  In the C or POSIX locale, all characters are encoded as a single byte and every byte is a[0m
+[38;2;248;248;242m            valid character.[0m
+
+[38;2;248;248;242m     LC_ALL, LC_MESSAGES, LANG[0m
+[38;2;248;248;242m            These variables specify the locale for the LC_MESSAGES category, which determines the language that  grep  uses  for  mes‐[0m
+[38;2;248;248;242m            sages.  The default C locale uses American English messages.[0m
+
+[38;2;248;248;242m     POSIXLY_CORRECT[0m
+[38;2;248;248;242m            If set, grep behaves as POSIX requires; otherwise, grep behaves more like other GNU programs.  POSIX requires that options[0m
+[38;2;248;248;242m            that  follow  file  names must be treated as file names; by default, such options are permuted to the front of the operand[0m
+[38;2;248;248;242m            list and are treated as options.  Also, POSIX requires that unrecognized options be diagnosed as “illegal”, but since they[0m
+[38;2;248;248;242m            are not really against the law the default is to diagnose them as “invalid”.[0m
+
+[38;2;253;151;31mNOTES[0m
+[38;2;248;248;242m     This man page is maintained only fitfully; the full documentation is often more up-to-date.[0m
+
+[38;2;253;151;31mCOPYRIGHT[0m
+[38;2;248;248;242m     Copyright 1998–2000, 2002, 2005–2025 Free Software Foundation, Inc.[0m
+
+[38;2;248;248;242m     This is free software; see the source for copying conditions.  There is NO warranty; not even for MERCHANTABILITY or FITNESS  FOR[0m
+[38;2;248;248;242m     A PARTICULAR PURPOSE.[0m
+
+[38;2;253;151;31mBUGS[0m
+[38;2;248;248;242m   Reporting Bugs[0m
+[38;2;248;248;242m     Email bug reports to the bug-reporting address.  An email archive and a bug tracker are available.[0m
+
+[38;2;248;248;242m   Known Bugs[0m
+[38;2;248;248;242m     Large  repetition counts in the {n,m} construct may cause grep to use lots of memory.  In addition, certain other obscure regular[0m
+[38;2;248;248;242m     expressions require exponential time and space, and may cause grep to run out of memory.[0m
+
+[38;2;248;248;242m     Back-references are very slow, and may require exponential time.[0m
+
+[38;2;253;151;31mEXAMPLE[0m
+[38;2;248;248;242m     The following example outputs the location and contents of any line containing “f” and ending in “.c”, within all  files  in  the[0m
+[38;2;248;248;242m     current directory whose names contain “g” and end in “.h”.  The [0m[38;2;166;226;46m-n[0m[38;2;248;248;242m option outputs line numbers, the -- argument treats expansions[0m
+[38;2;248;248;242m     of  “*g*.h” starting with “-” as file names not options, and the empty file /dev/null causes file names to be output even if only[0m
+[38;2;248;248;242m     one file name happens to be of the form “*g*.h”.[0m
+
+[38;2;248;248;242m       $ grep [0m[38;2;166;226;46m-n[0m[38;2;248;248;242m -- 'f.*\.c$' *g*.h /dev/null[0m
+[38;2;248;248;242m       argmatch.h:1:/* definitions and prototypes for argmatch.c[0m
+
+[38;2;248;248;242m     The only line that matches is line 1 of argmatch.h.  Note that the regular expression syntax used in the pattern differs from the[0m
+[38;2;248;248;242m     globbing syntax that the shell uses to match file names.[0m
+
+[38;2;253;151;31mSEE ALSO[0m
+[38;2;248;248;242m   Regular Manual Pages[0m
+[38;2;248;248;242m     [0m[38;2;166;226;46mawk[0m[38;2;249;38;114m([0m[38;2;190;132;255m1[0m[38;2;249;38;114m)[0m[38;2;248;248;242m, [0m[38;2;166;226;46mcmp[0m[38;2;249;38;114m([0m[38;2;190;132;255m1[0m[38;2;249;38;114m)[0m[38;2;248;248;242m, [0m[38;2;166;226;46mdiff[0m[38;2;249;38;114m([0m[38;2;190;132;255m1[0m[38;2;249;38;114m)[0m[38;2;248;248;242m, [0m[38;2;166;226;46mfind[0m[38;2;249;38;114m([0m[38;2;190;132;255m1[0m[38;2;249;38;114m)[0m[38;2;248;248;242m, [0m[38;2;166;226;46mperl[0m[38;2;249;38;114m([0m[38;2;190;132;255m1[0m[38;2;249;38;114m)[0m[38;2;248;248;242m, [0m[38;2;166;226;46msed[0m[38;2;249;38;114m([0m[38;2;190;132;255m1[0m[38;2;249;38;114m)[0m[38;2;248;248;242m, [0m[38;2;166;226;46msort[0m[38;2;249;38;114m([0m[38;2;190;132;255m1[0m[38;2;249;38;114m)[0m[38;2;248;248;242m, [0m[38;2;166;226;46mxargs[0m[38;2;249;38;114m([0m[38;2;190;132;255m1[0m[38;2;249;38;114m)[0m[38;2;248;248;242m, [0m[38;2;166;226;46mread[0m[38;2;249;38;114m([0m[38;2;190;132;255m2[0m[38;2;249;38;114m)[0m[38;2;248;248;242m, [0m[38;2;166;226;46mpcre2[0m[38;2;249;38;114m([0m[38;2;190;132;255m3[0m[38;2;249;38;114m)[0m[38;2;248;248;242m,  [0m[38;2;166;226;46mpcre2syntax[0m[38;2;249;38;114m([0m[38;2;190;132;255m3[0m[38;2;249;38;114m)[0m[38;2;248;248;242m,  [0m[38;2;166;226;46mpcre2pattern[0m[38;2;249;38;114m([0m[38;2;190;132;255m3[0m[38;2;249;38;114m)[0m[38;2;248;248;242m,  ter‐[0m
+[38;2;248;248;242m     [0m[38;2;166;226;46mminfo[0m[38;2;249;38;114m([0m[38;2;190;132;255m5[0m[38;2;249;38;114m)[0m[38;2;248;248;242m, [0m[38;2;166;226;46mglob[0m[38;2;249;38;114m([0m[38;2;190;132;255m7[0m[38;2;249;38;114m)[0m[38;2;248;248;242m, [0m[38;2;166;226;46mregex[0m[38;2;249;38;114m([0m[38;2;190;132;255m7[0m[38;2;249;38;114m)[0m
+
+[38;2;248;248;242m   Full Documentation[0m
+[38;2;248;248;242m     A complete manual is available.  If the info and grep programs are properly installed at your site, the command[0m
+
+[38;2;248;248;242m            info grep[0m
+
+[38;2;248;248;242m     should give you access to the complete manual.[0m
+
+[38;2;253;151;31mGNU grep 3.12-modified                                        2025-03-21                                                       GREP(1)[0m
