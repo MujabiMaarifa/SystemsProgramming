@@ -1,0 +1,94 @@
+Discussion Questions
+1. Differentiate between systems programming and application programming.
+2. Why is C preferred for systems programming?
+3. Explain the stages of compilation.
+4. What are the functions of an operating system?
+5. Explain the role of a shell in Linux.
+6. Compare gcc and gdb.
+7. Explain the importance of debugging.
+8. What are command-line arguments?
+Assignment
+Part A: Theory
+1. Explain five characteristics of systems programming.
+2. Discuss advantages of Linux in systems programming.
+3. Explain the role of a compiler, linker, and loader.
+Part B: Practical
+Write a C program that: 1. Accepts student name and registration number. 2. Displays
+the details. 3. Calculates the sum of two integers. 4. Accepts two command-line
+arguments.
+
+//Answer 1
+Systems programming simply refers to the writing software that provides services to the hardware and the software running the computer.
+Application programming focuses on creating software for users.
+
+Differences
+Application Programming
+- High level of abstraction
+- Languages: Python, JS, Java
+- Focuses on the USer hence user interface
+- Indirect hardware access
+- Needs moderate performance
+- Word, browser
+
+Systems Programming
+- Low level of abstraction
+- Languages: C, C++, Rust -> low level programming languages
+- Direct hardware access
+- Needs very efjficient performance
+- compiler, OS, Driver
+
+//Answer 2
+C is preferred as it is a low level programming language
+- Has predectable performance for the OS kernels
+- Has minimal runtime overhead
+- Has direct hardware access
+- C has low level memory manipulation
+
+//Answer 3
+//Stages of Compilation
+Preprocessing - handles file directives, macros, header files
+Compilation - compiler converts the source code into assembly
+Assembly - Assembler converts the assembly code into objects
+Linking - linker links the Objects to files in executable
+
+//functions of the OS
+//Answer 4
+- File management - organizing, storing, retrieving and managing data to storage data
+- Process management - creating, scheduling, and terminating processes
+- Device management - Controlling and coordinating hardware devices through drivers
+- User interface - either through the CLI or the GUI
+- Memory management - allocating, deallocating memory space as needed by programs
+- Security management
+
+//Answer 5
+Shell - is a command interpreter that allows users to interact with the operating system.
+types, zsh, bash, tsch, ksh
+
+//Answer 6
+GCC - GNU compiler collection - used to compile and execute c program codes
+GDB - GNU debugger - contains debugging tools that can be used to debug programs
+
+//Answer 8
+Command Line Arguments - allows the terminal to receive inputs from the users
+
+//PART A - theory
+1.
+- low level access
+- performance - efficiency and speed
+- Resource management
+- Concurrency
+- Language Choice - C, C++ - low level programming languages 
+
+//2
+Role of Linux in Systems Programming
+- Linux has more command line support
+- Open Source Full kernel access
+- POSIX compliace provides
+- Robust networking stuck and diverse network support
+- Strong security features and support
+- Extensive documentation and community support
+
+//3
+Compiler - translates the source code into object code and performs preprocessing and optimization.
+Linker -combines one or more object files into an executable resolving eternal symbols.
+Loader - places the executable into memory, set's the program address space and starts the execution
