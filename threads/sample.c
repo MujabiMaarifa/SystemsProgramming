@@ -5,12 +5,19 @@ void *display(void *arg)
     printf("Thread executing\n");
     return NULL;
 }
+
+void *worker(void *arg) {
+    printf("Thread ID : %lu\n", (unsigned long)pthread_self());
+    return NULL;
+}
 int main()
 {
     pthread_t t1, t2, t3;
     pthread_create(&t1,NULL,display,NULL);
+
     pthread_create(&t2,NULL,display,NULL);
     pthread_create(&t3,NULL,display,NULL);
+    pthread_create(&t1, NULL, worker, NULL);
     pthread_join(t1,NULL);
     pthread_join(t2,NULL);
     pthread_join(t3,NULL);
